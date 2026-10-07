@@ -1,0 +1,104 @@
+{
+  "id": "museum_night",
+  "title": "Ночь в музее",
+  "description": "Ночная экскурсия по музею древности превращается в борьбу за выживание.",
+  "startSceneId": "hall",
+  "scenes": {
+    "hall": {
+      "id": "hall",
+      "text": " Вы стоите в центральном холле музея. Двери заперты. На столе перед вами лежат старый ржавый ключ и фонарик.",
+      "media": {
+        "type": "Photo",
+        "filePath": "hall.jpg"
+      },
+      "voteTimeoutSeconds": 300,
+      "choices": [
+        {
+          "text": "🔑 Взять ключ и пойти к дубовой двери",
+          "nextSceneId": "locked_door",
+          "actions": [
+            {
+              "type": "AddItem",
+              "target": "key"
+            }
+          ]
+        },
+        {
+          "text": "🔦 Взять фонарик и подойти к двери",
+          "nextSceneId": "locked_door",
+          "actions": [
+            {
+              "type": "AddItem",
+              "target": "flashlight"
+            }
+          ]
+        }
+      ]
+    },
+    "locked_door": {
+      "id": "locked_door",
+      "text": " Вы подходите к тяжелой дубовой двери. Преодолев замковый механизм, вы открываете спуск в глубокий подвал.",
+      "media": {
+        "type": "Photo",
+        "filePath": "door.jpg"
+      },
+      "voteTimeoutSeconds": 300,
+      "choices": [
+        {
+          "text": "🔊 Спуститься по лестнице в подвал (Audio)",
+          "nextSceneId": "basement"
+        }
+      ]
+    },
+    "basement": {
+      "id": "basement",
+      "text": " В подвале темно и сыро. Из глубины коридора раздаётся странный гул и эхо...",
+      "media": {
+        "type": "Audio",
+        "filePath": "basement_ambient.mp3"
+      },
+      "voteTimeoutSeconds": 300,
+      "choices": [
+        {
+          "text": "🎬 Пройти дальше на звук к архивному залу (Video)",
+          "nextSceneId": "video_hall"
+        }
+      ]
+    },
+    "video_hall": {
+      "id": "video_hall",
+      "text": "🎬 ТЕСТ ВИДЕО: В архивном зале старый проектор на стене автоматически закрутил плёнку с записью...",
+      "media": {
+        "type": "Video",
+        "filePath": "archive_intro.mp4"
+      },
+      "voteTimeoutSeconds": 300,
+      "choices": [
+        {
+          "text": "👻 Заглянуть за экран проектора (Animation)",
+          "nextSceneId": "ghost_animation"
+        }
+      ]
+    },
+    "ghost_animation": {
+      "id": "ghost_animation",
+      "text": "✨ ТЕСТ АНИМАЦИИ (GIF): Из стены неожиданно вылетает мерцающий призрак и указывает на секретный проход!",
+      "media": {
+        "type": "Animation",
+        "filePath": "ghost.gif"
+      },
+      "voteTimeoutSeconds": 300,
+      "choices": [
+        {
+          "text": "🏆 Войти в открывшийся проход",
+          "nextSceneId": "secret_room"
+        }
+      ]
+    },
+    "secret_room": {
+      "id": "secret_room",
+      "text": "🏆 Вы успешно преодолели все испытания и вошли в тайную комнату! Поздравляем, квест пройден!",
+      "choices": []
+    }
+  }
+}
